@@ -1,5 +1,5 @@
-# Example Coursework
-This repository contains my example coursework of the following courses:
+# Example Projects and Coursework
+This repository contains my example projects and coursework for the following courses:
 
 
 ## [Algorithms - Princeton University](https://github.com/liyiyan128/example-projects-cw/tree/main/algs4) (Coursera/Online)
