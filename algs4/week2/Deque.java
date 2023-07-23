@@ -140,10 +140,12 @@ public class Deque<Item> implements Iterable<Item> {
         deque.addLast(4);
         deque.removeFirst();
         deque.removeLast();
+        StringBuffer stringBuffer = new StringBuffer();
         for (int s : deque) {
-            System.out.println(s);
+            stringBuffer.append(s).append(", ");
         }
-
+        sf = String.format("Deque [%s] of size %d", stringBuffer, deque.size());
+        System.out.println(sf);
     }
 
 }
