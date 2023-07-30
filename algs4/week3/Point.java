@@ -1,6 +1,6 @@
 import java.util.Comparator;
 import edu.princeton.cs.algs4.StdDraw;
-
+import edu.princeton.cs.algs4.In;
 
 /**
  *  This is a Point data type that represents a point in the plane.
@@ -55,11 +55,13 @@ public class Point implements Comparable<Point> {
      * slope = (y1 - y0) / (x1 - x0)
      */
     public double slopeTo(Point that) {
-        if (this.compareTo(that) == 0) {
+        if (that == null) {
+            throw new NullPointerException();
+        } else if (this.compareTo(that) == 0) {  // degenerate
             return Double.NEGATIVE_INFINITY;
         } else if (this.y == that.y) {  // horizontal
             return 0.0;
-        } else if (this.x == that.y) { // vertical
+        } else if (this.x == that.x) {  // vertical
             return Double.POSITIVE_INFINITY;
         } else {
         return (that.y - this.y) / (double) (that.x - this.x);
@@ -82,4 +84,25 @@ public class Point implements Comparable<Point> {
         };
     }
 
+    public static void main(String[] args) {
+
+        // read the n points from a file
+        In in = new In(args[0]);
+        int n = in.readInt();
+        Point[] points = new Point[n];
+        for (int i = 0; i < n; i++) {
+            int x = in.readInt();
+            int y = in.readInt();
+            points[i] = new Point(x, y);
+        }
+
+        // draw the points
+        StdDraw.enableDoubleBuffering();
+        StdDraw.setXscale(0, 32768);
+        StdDraw.setYscale(0, 32768);
+        for (Point p : points) {
+            p.draw();
+        }
+        StdDraw.show();
+    }
 }
