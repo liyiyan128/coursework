@@ -36,8 +36,8 @@ public class BruteCollinearPoints {
             for (int j = i + 1; j < points.length; j++) {
                 for (int k = j + 1; k < points.length; k++) {
                     for (int l = k + 1; l < pointsCopy.length; l++) {
-                        if (Double.compare(pointsCopy[i], pointsCopy[j]) == 0
-                            && Double.compare(pointsCopy[k], pointsCopy[l]) == 0) {
+                        if (Double.compare(pointsCopy[i].slopeTo(pointsCopy[j]), pointsCopy[i].slopeTo(pointsCopy[k])) == 0
+                            && Double.compare(pointsCopy[i].slopeTo(pointsCopy[k]), pointsCopy[i].slopeTo(pointsCopy[l])) == 0) {
                                 LineSegment segment = new LineSegment(pointsCopy[i], pointsCopy[l]);
                                 lineSegments.add(segment);
                             }
